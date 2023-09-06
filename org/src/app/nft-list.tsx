@@ -56,7 +56,7 @@ const NFTList: React.FC<NFTListProps> = ({ address }) => {
                 <Heading size="md">{nft.name}</Heading>
                 <Text>{nft.description}</Text>
                 {/* Example price (adjust as needed) */}
-                <Text color="green.600" fontSize="2xl">$1,111</Text> 
+                {/* <Text color="green.600" fontSize="2xl">$1,111</Text>  */}
               </Stack>
             </CardBody>
             <Divider />
