@@ -9,10 +9,15 @@ import {
   Text,
   Drawer,
   DrawerContent,
+  Container,
+  Button,
+  VStack,
+  Heading,
   useDisclosure,
   BoxProps,
   FlexProps,
 } from '@chakra-ui/react';
+
 import {
   FiHome,
   FiTrendingUp,
@@ -38,6 +43,24 @@ const LinkItems: Array<LinkItemProps> = [
   
 ];
 
+const Home: React.FC<{ onSelectComponent: (name: string) => void }> = ({ onSelectComponent }) => {
+  return (
+    <Container centerContent>
+      <VStack spacing={4} align="center">
+        <Heading>Welcome to the 1inch.io Demo Application</Heading>
+        <Text>
+          1inch.io is a leading decentralized exchange aggregator that sources liquidity from various exchanges to provide users with the best trade rates. By using our new APIs, developers can effortlessly integrate this powerful tool into their applications, ensuring users get the most value from their trades.
+        </Text>
+        <VStack spacing={2} width="100%" align="stretch">
+          <Button onClick={() => onSelectComponent('NFT API')}>NFT API</Button>
+          <Button onClick={() => onSelectComponent('Gas Price API')}>Gas Price API</Button>
+          <Button onClick={() => onSelectComponent('Traces API')}>Traces API</Button>
+        </VStack>
+      </VStack>
+    </Container>
+  );
+};
+
 export default function SimpleSidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
@@ -60,7 +83,7 @@ export default function SimpleSidebar() {
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
 
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {selectedComponent === 'Home' && <div>Home Component</div>}
+        {selectedComponent === 'Home' && <Home onSelectComponent={setSelectedComponent}/>}
         {selectedComponent === 'NFT API' && <NFTList address={""}/>}
         {selectedComponent === 'Gas Price API' && <GasPrice/>}
         {selectedComponent === 'Traces API' && <EVMBlockTraces/>}
@@ -87,7 +110,7 @@ const SidebarContent: React.FC<SidebarProps> = ({ onClose,setSelectedComponent, 
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+          1inch Demo
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>

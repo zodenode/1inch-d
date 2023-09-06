@@ -13,10 +13,10 @@ import {
 } from '@chakra-ui/react';
 
 const EVMBlockTraces = () => {
-  const [chain, setChain] = useState<string | null>(null);
+  const [chain, setChain] = useState<string>("1");
   const [blockNumber, setBlockNumber] = useState('');
   const [txHash, setTxHash] = useState('');
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<string | null>(null);
 
   const fetchSyncedInterval = async () => {
     try {

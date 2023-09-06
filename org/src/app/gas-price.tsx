@@ -43,7 +43,11 @@ const GasPrice: React.FC = () => {
     <Card>
       <CardHeader>
         <Heading size='md'>Ethereum Gas Prices</Heading>
-        <CircularProgress value={countdown * 36} size='120px' />
+        <CircularProgress 
+  transition="all 0.6s ease"
+  value={countdown * 36} 
+  size='120px' 
+/>
       </CardHeader>
 
       <CardBody>
@@ -53,7 +57,7 @@ const GasPrice: React.FC = () => {
               Base Fee
             </Heading>
             <Text pt='2' fontSize='sm'>
-              {gasPrice.baseFee}
+              {gasPrice.baseFee} Wei
             </Text>
           </Box>
           {gasPrice.low && (
@@ -71,7 +75,7 @@ const GasPrice: React.FC = () => {
                   Medium
                 </Heading>
                 <Text pt='2' fontSize='sm'>
-                  {gasPrice.medium.maxPriorityFeePerGas}
+                  {gasPrice.medium.maxPriorityFeePerGas} Wei
                 </Text>
               </Box>
               <Box>
