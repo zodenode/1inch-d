@@ -7,6 +7,7 @@ const app = express()
 const PORT = 5000; 
 
 const BASE_URL = 'https://api.1inch.dev'
+const mySecret = process.env['1INCH_API_KEY'] // set your 1INCH_API_KEY in a secrets in your hosting provider.
 
 const {
   getSyncedInterval,
@@ -38,7 +39,7 @@ app.get('/fetchNfts', async (req, res) => {
 
     const response = await axios.get(constructedUrl, {
       headers: {
-        Authorization: 'Bearer t8QR94g31WPWC4tFYjM7xnO0WHewKxSb' // Make sure you replace your API Key here
+        Authorization: `Bearer ${mySecret}`, // Make sure you replace your API Key in your dot-env secrets
       }
     });
 
@@ -62,7 +63,7 @@ app.get('/gas-price', async (req, res) => {
   try {
     const response = await axios.get(`${BASE_URL}/gas-price/v1.4/1`, {
       headers: {
-        Authorization: 'Bearer t8QR94g31WPWC4tFYjM7xnO0WHewKxSb'  // Make sure you replace your API Key here
+        Authorization: `Bearer ${mySecret}`  // Make sure you replace your API Key in your dot-env secrets
       }
     });
     res.json(response.data);

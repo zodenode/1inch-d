@@ -29,11 +29,13 @@ Within this repository, you'll find demonstrations for several core features pro
    Once you have your API key, place it in the respective configuration or environment files (as directed in the repo instructions).
 
 4. **Run the Demo**:
-   Depending on the setup, generally, you can start the demo using:
+   Depending on the setup, generally, you can start the demo server in the index.js using:
    ```bash
    npm install
    npm start
    ```
+
+  similarly start the react folder located in org 
 
 5. **Consult the Documentation**:
    For a deeper understanding of each API's capabilities, parameters, and potential responses, refer to the official documentation available at [portal.1inch.dev](https://portal.1inch.dev).
